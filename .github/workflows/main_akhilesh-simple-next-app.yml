@@ -60,4 +60,4 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AD84200ECCD04439B7BF3651A1A2FB0F }}
 
       - name: Start the application
-        run: npm start 3000
+        run: npm start
