@@ -25,7 +25,6 @@ jobs:
           rm -rf node_modules .next
           yarn install
           yarn run build
-          yarn global add next
 
       - name: Zip artifact for deployment
         run: zip -r release.zip ./*
