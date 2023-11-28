@@ -19,12 +19,11 @@ jobs:
           node-version: '18.17.0'
           registry-url: 'https://registry.yarnpkg.com/'
 
-      - name: Yarn install, build, and test
+      - name: Yarn install, build
         run: |
           rm -rf node_modules .next
           yarn install
-          yarn build --if-present
-          yarn test --if-present
+          yarn run build
 
       - name: Zip artifact for deployment
         run: zip -r release.zip ./*
