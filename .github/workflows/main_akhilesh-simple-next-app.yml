@@ -13,17 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js version and Yarn
         uses: actions/setup-node@v3
         with:
           node-version: '18.17.0'
+          registry-url: 'https://registry.yarnpkg.com/'
 
-      - name: npm install, build, and test
+      - name: Yarn install, build, and test
         run: |
-          rm -rf node_modules
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          rm -rf node_modules .next
+          yarn install
+          yarn build --if-present
+          yarn test --if-present
 
       - name: Zip artifact for deployment
         run: zip -r release.zip ./*
@@ -60,4 +61,4 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AD84200ECCD04439B7BF3651A1A2FB0F }}
 
       - name: Start the application
-        run: npm start
+        run: yarn start
