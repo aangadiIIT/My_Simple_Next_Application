@@ -19,7 +19,7 @@ jobs:
           node-version: '18.17.1'
           registry-url: 'https://registry.yarnpkg.com/'
 
-      - name: Yarn install, build
+      - name: Node install, build
         run: |
           rm -rf node_modules .next
           npm install
